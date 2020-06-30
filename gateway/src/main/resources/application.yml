@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: cloud-gateway
+
+server:
+  port: 8011
+  servlet:
+    context-path: /cloud
+
+zuul:
+  routes:
+    user-service:
+      path: /user/**
+      serviceId: user-service
+    product-service:
+      path: /product/**
+      serviceId: product-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8070/eureka
